@@ -82,6 +82,44 @@ class MyApp extends StatelessWidget{
       ),
     );
 
+    Widget imageSections = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: 10.0, color: Colors.black38),
+              borderRadius: const BorderRadius.all(const Radius.circular(8.0))
+            ),
+            child: Image.asset(
+                'images/lake.jpg',
+                width: 100,
+                height: 100,
+                fit: BoxFit.fill),
+          ),
+          flex: 2,
+        ),
+        Expanded(
+          child: Image.asset(
+              'images/lake.jpg',
+              width: 100,
+              height: 100,
+              fit: BoxFit.fill),
+          flex: 1,
+        ),
+        Expanded(
+          child: Image.asset(
+              'images/lake.jpg',
+              width: 100,
+              height: 100,
+              fit: BoxFit.fill),
+          flex: 1,
+        )
+      ],
+    );
+
     return new MaterialApp(
       title: 'Startup Name Generator',
       theme: new ThemeData(
@@ -97,11 +135,12 @@ class MyApp extends StatelessWidget{
               'images/lake.jpg',
               width: 600.0,
               height: 240.0,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
             titleSection,
             buttonSection,
-            textSection
+            textSection,
+            imageSections
           ],
         ),
       ),
