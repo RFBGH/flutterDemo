@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class MyApp extends StatelessWidget{
   @override
@@ -49,8 +48,8 @@ class MyApp extends StatelessWidget{
         Align(
           alignment: Alignment.center,
           child:ElevatedButton(
-            onPressed: (){
-              Fluttertoast.showToast(msg: 'click here');
+            onPressed: () {
+              print('click');
             },
             child: Text('center'),
           ),

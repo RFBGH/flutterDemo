@@ -30,11 +30,12 @@ class MyApp extends StatelessWidget{
               ],
             ),
           ),
-          new Icon(
-            Icons.star,
-            color: Colors.red[500],
-          ),
-          new Text('41'),
+          _FavoriteWidget()
+          // new Icon(
+          //   Icons.star,
+          //   color: Colors.red[500],
+          // ),
+          // new Text('41'),
         ],
       ),
     );
@@ -146,7 +147,45 @@ class MyApp extends StatelessWidget{
       ),
     );
   }
+}
 
+class _FavoriteWidget extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return _FavoriteState();
+  }
+}
 
+class _FavoriteState extends State<_FavoriteWidget>{
 
+  var favorite = false;
+  var favoriteCount = 0;
+
+  void _favorite(){
+
+    setState(() {
+      if(favorite){
+        favoriteCount--;
+      }else{
+        favoriteCount++;
+      }
+      favorite = !favorite;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          icon: Icon(
+            favorite?Icons.star:Icons.star_border,
+            color: favorite?Colors.red:Colors.grey[500],
+          ),
+          onPressed: _favorite
+        ),
+        Text('$favoriteCount')
+      ],
+    );
+  }
 }
