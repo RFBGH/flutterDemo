@@ -42,8 +42,8 @@ class MyFadeState extends State<MyFadeTest> with TickerProviderStateMixin{
       ),
       body: Center(
         child: Container(
-          child: FadeTransition(
-            opacity: curve,
+          child: RotationTransition(
+            turns: curve,
             child: FlutterLogo(
               size: 100.0,
             ),
@@ -54,6 +54,7 @@ class MyFadeState extends State<MyFadeTest> with TickerProviderStateMixin{
         tooltip: 'Fade',
         child: Icon(Icons.brush),
         onPressed: (){
+          controller.reset();
           controller.forward();
         },
       ),

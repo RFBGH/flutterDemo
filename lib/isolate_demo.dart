@@ -1,5 +1,7 @@
 import 'dart:isolate';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class MyApp extends StatefulWidget{
   @override
@@ -10,7 +12,7 @@ class MyApp extends StatefulWidget{
 
 class LoadState extends State<MyApp>{
 
-  String result = null;
+  List<dynamic> result = null;
 
   static void dataLoader(SendPort sendPort) async{
 
@@ -19,8 +21,9 @@ class LoadState extends State<MyApp>{
 
     await for(var msg in receivePort){
       SendPort sendPort = msg[0];
-      String param = msg[1];
-      sendPort.send('$param plus one');
+      String url = msg[1];
+      http.Response response = await http.get(url);
+      sendPort.send(json.decode(response.body));
     }
   }
 
@@ -32,13 +35,33 @@ class LoadState extends State<MyApp>{
 
     ReceivePort respone = ReceivePort();
     SendPort sendPort = await receivePort.first;
-    sendPort.send([respone.sendPort, result]);
+    sendPort.send([respone.sendPort, 'https://jsonplaceholder.typicode.com/posts']);
 
-    String temp = await respone.first;
+    List<dynamic> temp = await respone.first;
 
     setState(() {
       result = temp;
     });
+  }
+
+  Widget getBody(){
+
+    if(result == null){
+      return Center(child: new CircularProgressIndicator());
+    }
+
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index){
+
+        Map item = result[index];
+        String s = '''
+          id:${item['id']}
+          title:${item['title']}
+        ''';
+        return Text(s, maxLines: 5,);
+      },
+      itemCount: result.length,
+    );
   }
 
   @override
@@ -46,9 +69,7 @@ class LoadState extends State<MyApp>{
     return MaterialApp(
       title: 'isolate demo',
       home: Scaffold(
-        body: Center(
-          child:Text(result == null ? "xxxx":result),
-        ),
+        body:getBody(),
         floatingActionButton: FloatingActionButton(
           tooltip: 'Fade',
           child: Icon(Icons.brush),
