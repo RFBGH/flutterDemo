@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'painter_demo.dart';
+import 'isolate_demo.dart';
 
 void main() {
 
@@ -7,7 +7,7 @@ void main() {
     return 1;
   })
   .then((value){
-    print("then $value");
+    print("then  11 $value");
   });
 
   return runApp(new MyApp());
