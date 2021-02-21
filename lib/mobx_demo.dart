@@ -24,15 +24,27 @@ class MyApp extends StatelessWidget{
         ),
         body: Observer(
           builder: (ctx){
-            return Text(_counter.value.toString());
+
+            return Column(
+              children: [
+                Text(_counter.value.toString()),
+                Text(_counter.value1.toString())
+              ],
+            );
           },
         ),
-        floatingActionButton: FloatingActionButton(
-          tooltip: 'Fade',
-          child: Icon(Icons.brush),
-          onPressed: (){
-            _counter.increment();
-          },
+        floatingActionButton:FloatingActionButton(
+          tooltip: 'Fade1',
+          child: Column(
+            children: [
+              IconButton(icon: Icon(Icons.add), onPressed: (){
+                _counter.increment();
+              }),
+              IconButton(icon: Icon(Icons.brush), onPressed: (){
+                _counter.increment1();
+              }),
+            ],
+          ),
         ),
       ),
     );
