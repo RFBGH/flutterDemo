@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.grey),
             child: Row(
               children: [
-                Expanded(
-                    child: UserInfoWidget()),
+                Expanded(child: UserInfoWidget()),
                 Container(
                   decoration: BoxDecoration(color: Colors.green),
                   child: Text("no expand"),
@@ -39,10 +38,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.blue
-      ),
-
+      decoration: BoxDecoration(color: Colors.blue),
       child: UnconstrainedBox(
         alignment: Alignment.centerLeft,
         child: Container(
@@ -66,9 +62,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
                     right: 3.0,
                     child: ClipOval(
                       child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.red
-                        ),
+                        decoration: BoxDecoration(color: Colors.red),
                         width: 8.0,
                         height: 8.0,
                       ),
@@ -78,8 +72,7 @@ class _UserInfoWidgetState extends State<UserInfoWidget> {
               ),
               Padding(
                   padding: EdgeInsets.only(left: 4.0, right: 4.0),
-                  child:Text("grade one")
-              ),
+                  child: Text("grade one")),
               Icon(Icons.arrow_drop_down)
             ],
           ),

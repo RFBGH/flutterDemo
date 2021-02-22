@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'user_info_demo.dart';
+import 'mobx_demo.dart';
 
 void main() {
 

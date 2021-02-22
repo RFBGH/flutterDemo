@@ -17,6 +17,7 @@ abstract class CounterBase with Store{
     value++;
   }
 
+  @action
   void increment1(){
     value1++;
   }
