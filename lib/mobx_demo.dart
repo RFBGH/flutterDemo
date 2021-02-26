@@ -7,7 +7,6 @@ import 'counter.dart';
 class MyApp extends StatelessWidget{
 
   final _counter = Counter();
-  int i = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget{
               children: [
                 Text(_counter.value.toString()),
                 Text(_counter.value1.toString()),
-                Text("$i"),
+                MyStatelessWidget(),
               ],
             );
           },
@@ -41,7 +40,6 @@ class MyApp extends StatelessWidget{
             children: [
               IconButton(icon: Icon(Icons.add), onPressed: (){
                 _counter.increment();
-                i++;
               }),
               IconButton(icon: Icon(Icons.brush), onPressed: (){
                 _counter.increment1();
@@ -54,3 +52,14 @@ class MyApp extends StatelessWidget{
   }
 }
 
+class MyStatelessWidget extends StatelessWidget{
+
+  static int _count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    _count++;
+    return Text("$_count");
+  }
+  
+}
