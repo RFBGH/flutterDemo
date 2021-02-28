@@ -83,9 +83,13 @@ class _MyAppState extends State<MyApp> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
                   (ctx, index) {
-                return ExerciseBook(index);
+                    if(index < _itemCount){
+                      return ExerciseBook(index);
+                    }else{
+                      return Text("loading...");
+                    }
               },
-              childCount: _itemCount,
+              childCount: _itemCount+1,
             ),
           ),
         ],
