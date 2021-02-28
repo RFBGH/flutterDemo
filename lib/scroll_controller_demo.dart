@@ -10,6 +10,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   ScrollController _controller;
   bool _isShowBackTopMenu = false;
+  int _itemCount = 5;
 
   @override
   void initState() {
@@ -21,6 +22,26 @@ class _MyAppState extends State<MyApp> {
         _isShowBackTopMenu = showBackTopMenu;
         setState(() {});
       }
+
+      if(_controller.position.pixels >= _controller.position.maxScrollExtent){
+        loadMore();
+      }
+    });
+  }
+
+  void loadMore() async{
+    await Future.delayed(Duration(seconds: 2)).then((value){
+      setState(() {
+        _itemCount += 5;
+      });
+    });
+  }
+
+  Future<void> refresh()async{
+    await Future.delayed(Duration(seconds: 2)).then((value){
+      setState(() {
+        _itemCount = 5;
+      });
     });
   }
 
@@ -44,27 +65,31 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget getBody() {
-    return CustomScrollView(
-      controller: _controller,
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.only(top: 24, bottom: 24, left: 19, right: 19),
-            child: Text(
-              "已自动为你收藏拍照检查的练习册",
-              style: TextStyle(fontSize: 12, color: Color(0x80000000)),
+
+    return RefreshIndicator(
+      onRefresh: refresh,
+      child: CustomScrollView(
+        controller: _controller,
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.only(top: 24, bottom: 24, left: 19, right: 19),
+              child: Text(
+                "已自动为你收藏拍照检查的练习册",
+                style: TextStyle(fontSize: 12, color: Color(0x80000000)),
+              ),
             ),
           ),
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
                   (ctx, index) {
-                    return ExerciseBook();
-                  },
-            childCount: 100,
+                return ExerciseBook(index);
+              },
+              childCount: _itemCount,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

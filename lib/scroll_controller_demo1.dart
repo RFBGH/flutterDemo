@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     return Container(
       child: ListView.builder(
         itemBuilder: (ctx, index) {
-          return ExerciseBook();
+          return ExerciseBook(index);
         },
         controller: _controller,
         itemCount: 100,

@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ExerciseBook extends StatelessWidget {
+
+  int _index = 0;
+  ExerciseBook(int index){
+    _index = index;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -18,7 +24,7 @@ class ExerciseBook extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "同步轻松练习",
+                "同步轻松练习 $_index",
                 style: TextStyle(
                   fontSize: 18,
                   color: const Color(0xFF000000),
