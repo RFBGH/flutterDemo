@@ -3,10 +3,14 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 
 import 'counter.dart';
+import 'name.dart';
 
 class MyApp extends StatelessWidget{
 
   final _counter = Counter();
+  final _name = Name();
+
+  int _addCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +31,16 @@ class MyApp extends StatelessWidget{
 
             return Column(
               children: [
-                Text(_counter.value.toString()),
+                Text(_counter.value.toString()+" $_addCount"),
                 Text(_counter.value1.toString()),
                 MyStatelessWidget(),
+                Observer(builder: (context){
+                  return Text(_name.name);
+                }),
+                IconButton(icon: Icon(Icons.ac_unit), onPressed: (){
+                  _name.setName("newName ${_addCount}");
+                  _addCount++;
+                })
               ],
             );
           },
