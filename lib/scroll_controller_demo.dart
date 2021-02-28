@@ -29,6 +29,13 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+
+    _controller?.dispose();
+  }
+
   void loadMore() async{
     await Future.delayed(Duration(seconds: 2)).then((value){
       setState(() {
