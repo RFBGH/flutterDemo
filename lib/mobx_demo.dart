@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget{
                 Observer(builder: (context){
                   return Text(_name.name);
                 }),
+                Text(_name.name),
                 IconButton(icon: Icon(Icons.ac_unit), onPressed: (){
                   _name.setName("newName ${_addCount}");
                   _addCount++;
