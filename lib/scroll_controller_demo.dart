@@ -10,7 +10,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   ScrollController _controller;
   bool _isShowBackTopMenu = false;
-  int _itemCount = 5;
+  int _itemCount = 0;
+  GlobalKey<RefreshIndicatorState> _key = GlobalKey<RefreshIndicatorState>();
 
   @override
   void initState() {
@@ -26,6 +27,10 @@ class _MyAppState extends State<MyApp> {
       if(_controller.position.pixels >= _controller.position.maxScrollExtent){
         loadMore();
       }
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      _key.currentState?.show();
     });
   }
 
@@ -74,6 +79,7 @@ class _MyAppState extends State<MyApp> {
   Widget getBody() {
 
     return RefreshIndicator(
+      key: _key,
       onRefresh: refresh,
       child: CustomScrollView(
         controller: _controller,
