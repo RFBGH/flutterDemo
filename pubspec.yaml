@@ -33,6 +33,7 @@ dependencies:
   mobx: ^1.0.1
   flutter_mobx: ^1.0.1
   stack_trace: ^1.9.3
+  provider: ^4.0.1+1
 #  shared_preferences: ^0.4.2
 #  fluttertoast: ^4.0.1
 
