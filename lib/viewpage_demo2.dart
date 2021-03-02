@@ -32,7 +32,7 @@ class _MyViewPageState extends State<MyViewPage> {
     super.initState();
 
     _currSelect = new _CurPage();
-    _controller = PageController();
+    _controller = PageController(viewportFraction: 0.5);
     // startTimer();
     initPage();
   }
@@ -94,6 +94,7 @@ class _MyViewPageState extends State<MyViewPage> {
       },
       onPageChanged: onCurPageChange,
       controller: _controller,
+
     );
   }
 
