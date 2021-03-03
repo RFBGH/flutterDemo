@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class MyApp extends StatelessWidget{
   @override
@@ -22,116 +23,118 @@ class LowPriceCourseItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       margin: EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
-      height: 132,
       child: Stack(
         children: [
-          Positioned(
-            left: 16,
-            top: 16,
-            child: Container(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset('images/lake.jpg', fit: BoxFit.fill,)
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset('images/lake.jpg', fit: BoxFit.fill,)
+                ),
+                width: 75,
+                height: 100,
+                margin: EdgeInsets.only(right: 12),
               ),
-              width: 75,
-              height: 100,
-            ),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "2021年四级英语听力课",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF1F2021),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(left: 6, right: 6),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFE6F4FF),
+                        borderRadius: BorderRadius.all(Radius.circular(4))
+                    ),
+                    height: 18,
+                    child: Text(
+                      "专业课指导",
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF1984FF),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Text(
+                    "3月14日-三月24日",
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xFF8F9294),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
 
           Positioned(
-            top: 16,
-            left: 103,
-            child: Text(
-              "2021年四级英语听力课",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Color(0xFF1F2021),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 46,
-            left: 103,
-            child: Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.only(left: 6, right: 6),
-              decoration: BoxDecoration(
-                  color: Color(0xFFE6F4FF),
-                  borderRadius: BorderRadius.all(Radius.circular(4))
-              ),
-              height: 18,
-              child: Text(
-                "专业课指导",
-                style: TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF1984FF),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-              top: 101.4,
-              left: 103,
-              child: Text(
-                "3月14日-三月24日",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xFF8F9294),
-                ),
-              )),
-          Positioned(
-            right: 16,
-            bottom: 16,
-            child: Text(
-              "￥399",
-              style: TextStyle(
-                  color: Color(0xFF8F9294),
-                  fontSize: 11,
-                  fontWeight: FontWeight.w400,
-                  decoration  : TextDecoration.lineThrough
-              ),
-            ),
-          ),
-          Positioned(
-            right: 16,
-            bottom: 35,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            top: 57,
+            right: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                
-                Baseline(
-                  baseline: 23,
-                  baselineType: TextBaseline.alphabetic,
-                  child: Text(
-                    "￥",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xFFFF5C83),
-                      fontWeight: FontWeight.w700,
-                      textBaseline: TextBaseline.alphabetic,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Baseline(
+                      baseline: 23,
+                      baselineType: TextBaseline.alphabetic,
+                      child: Text(
+                        "￥",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFFFF5C83),
+                          fontWeight: FontWeight.w700,
+                          textBaseline: TextBaseline.alphabetic,
+                        ),
+                      ),
                     ),
-                  ),
+                    Baseline(
+                      baseline: 23,
+                      baselineType: TextBaseline.alphabetic,
+                      child: Text(
+                        "3",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Color(0xFFFF5C83),
+                          fontWeight: FontWeight.w700,
+                          textBaseline: TextBaseline.alphabetic,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Baseline(
-                  baseline: 23,
-                  baselineType: TextBaseline.alphabetic,
-                  child: Text(
-                    "3",
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Color(0xFFFF5C83),
-                      fontWeight: FontWeight.w700,
-                      textBaseline: TextBaseline.alphabetic,
-                    ),
+                Text(
+                  "￥399",
+                  style: TextStyle(
+                      color: Color(0xFF8F9294),
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                      decoration  : TextDecoration.lineThrough
                   ),
                 ),
               ],
