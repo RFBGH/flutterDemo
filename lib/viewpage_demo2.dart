@@ -94,7 +94,7 @@ class _MyViewPageState extends State<MyViewPage> {
       },
       onPageChanged: onCurPageChange,
       controller: _controller,
-
+      scrollDirection: Axis.vertical,
     );
   }
 

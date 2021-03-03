@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'scroll_controller_demo.dart';
+import 'low_price_course_item_widget.dart';
 
 void main() {
 
