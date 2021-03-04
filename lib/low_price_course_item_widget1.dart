@@ -46,6 +46,7 @@ class LowPriceCourseItemWidget extends StatelessWidget {
           Positioned(
             top: 16,
             left: 103,
+            right: 16,
             child: Text(
               "2021年四级英语听力课",
               style: TextStyle(
@@ -53,6 +54,7 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 color: Color(0xFF1F2021),
               ),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           Positioned(
