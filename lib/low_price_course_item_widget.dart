@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,8 +36,10 @@ class LowPriceCourseItemWidget extends StatelessWidget {
               Container(
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Image.asset('images/lake.jpg', fit: BoxFit.fill,)
-                ),
+                    child: Image.asset(
+                      'images/lake.jpg',
+                      fit: BoxFit.fill,
+                    )),
                 width: 75,
                 height: 100,
                 margin: EdgeInsets.only(right: 12),
@@ -54,6 +55,7 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       color: Color(0xFF1F2021),
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(
                     height: 10,
@@ -61,10 +63,8 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                   Container(
                     alignment: Alignment.center,
                     padding: EdgeInsets.only(left: 6, right: 6),
-                    decoration: BoxDecoration(
-                        color: Color(0xFFE6F4FF),
-                        borderRadius: BorderRadius.all(Radius.circular(4))
-                    ),
+                    decoration:
+                        BoxDecoration(color: Color(0xFFE6F4FF), borderRadius: BorderRadius.all(Radius.circular(4))),
                     height: 18,
                     child: Text(
                       "专业课指导",
@@ -90,52 +90,37 @@ class LowPriceCourseItemWidget extends StatelessWidget {
               ),
             ],
           ),
-
           Positioned(
             top: 57,
             right: 0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Baseline(
-                      baseline: 23,
-                      baselineType: TextBaseline.alphabetic,
-                      child: Text(
-                        "￥",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFFFF5C83),
-                          fontWeight: FontWeight.w700,
-                          textBaseline: TextBaseline.alphabetic,
-                        ),
-                      ),
+                Text.rich(TextSpan(children: [
+                  TextSpan(
+                    text: "￥",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFFFF5C83),
+                      fontWeight: FontWeight.w700,
                     ),
-                    Baseline(
-                      baseline: 23,
-                      baselineType: TextBaseline.alphabetic,
-                      child: Text(
-                        "3",
-                        style: TextStyle(
-                          fontSize: 24,
-                          color: Color(0xFFFF5C83),
-                          fontWeight: FontWeight.w700,
-                          textBaseline: TextBaseline.alphabetic,
-                        ),
-                      ),
+                  ),
+                  TextSpan(
+                    text: "3",
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Color(0xFFFF5C83),
+                      fontWeight: FontWeight.w700,
                     ),
-                  ],
-                ),
+                  ),
+                ])),
                 Text(
                   "￥399",
                   style: TextStyle(
                       color: Color(0xFF8F9294),
                       fontSize: 11,
                       fontWeight: FontWeight.w400,
-                      decoration  : TextDecoration.lineThrough
-                  ),
+                      decoration: TextDecoration.lineThrough),
                 ),
               ],
             ),
@@ -145,4 +130,3 @@ class LowPriceCourseItemWidget extends StatelessWidget {
     );
   }
 }
-
