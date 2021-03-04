@@ -31,6 +31,7 @@ class FreeCourseBanner extends StatelessWidget {
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
                 color: Color(0xFF1F2021),
+                fontFamily: "PingFang SC",
               ),
             ),
           ),

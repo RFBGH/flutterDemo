@@ -61,6 +61,7 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
                 color: Color(0xFF1F2021),
+                fontFamily: "PingFang SC",
               ),
               overflow: TextOverflow.ellipsis,
             ),
@@ -82,6 +83,7 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                   fontSize: 10,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF1984FF),
+                  fontFamily: "PingFang SC",
                 ),
               ),
             ),
@@ -95,45 +97,50 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFF8F9294),
+                  fontFamily: "PingFang SC",
                 ),
               )
           ),
           Positioned(
             right: 16,
             bottom: 16,
-            child: Text(
-              "￥399",
-              style: TextStyle(
-                  color: Color(0xFF8F9294),
-                  fontSize: 11,
-                  fontWeight: FontWeight.w400,
-                  decoration  : TextDecoration.lineThrough
-              ),
-            ),
-          ),
-          Positioned(
-            right: 16,
-            bottom: 35,
-            child: Text.rich(TextSpan(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                TextSpan(
-                  text:"￥",
+                Text.rich(TextSpan(
+                    children: [
+                      TextSpan(
+                        text:"¥",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFFFF5C83),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "DIN Alternate",
+                        ),
+                      ),
+                      TextSpan(
+                        text:"3",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Color(0xFFFF5C83),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "DIN Alternate",
+                        ),
+                      ),
+                    ]
+                )),
+                Text(
+                  "¥399",
                   style: TextStyle(
-                    fontSize: 12,
-                    color: Color(0xFFFF5C83),
-                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF8F9294),
+                    fontSize: 11,
+                    fontWeight: FontWeight.w400,
+                    decoration  : TextDecoration.lineThrough,
+                    fontFamily: "PingFang SC",
                   ),
                 ),
-                TextSpan(
-                  text:"3",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Color(0xFFFF5C83),
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ]
-            )),
+              ],
+            ),
           ),
         ],
       ),
