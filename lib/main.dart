@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'low_price_course_item_widget.dart';
+import 'low_price_course_item_widget1.dart';
 
 void main() {
 

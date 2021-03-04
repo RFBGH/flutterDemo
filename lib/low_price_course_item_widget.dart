@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'free_course_banner.dart';
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,13 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('low price demo'),
         ),
-        body: LowPriceCourseItemWidget(),
+        body: Column(
+          children: [
+            LowPriceCourseItemWidget(),
+            SizedBox(height: 20,),
+            FreeCourseBanner(),
+          ],
+        ),
         backgroundColor: Colors.black,
       ),
     );
@@ -48,14 +56,17 @@ class LowPriceCourseItemWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "2021年四级英语听力课",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xFF1F2021),
+                  Container(
+                    child: Text(
+                      "2021年四级英语听力课",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF1F2021),
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
+                    width: 200,
                   ),
                   SizedBox(
                     height: 10,

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'free_course_banner.dart';
+
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,13 @@ class MyApp extends StatelessWidget{
         appBar: AppBar(
           title: Text('low price demo'),
         ),
-        body: LowPriceCourseItemWidget(),
+        body: Column(
+          children: [
+            LowPriceCourseItemWidget(),
+            SizedBox(height: 20,),
+            FreeCourseBanner(),
+          ],
+        ),
         backgroundColor: Colors.black,
       ),
     );
