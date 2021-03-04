@@ -104,38 +104,26 @@ class LowPriceCourseItemWidget extends StatelessWidget {
           Positioned(
             right: 16,
             bottom: 35,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Text.rich(TextSpan(
               children: [
-                
-                Baseline(
-                  baseline: 23,
-                  baselineType: TextBaseline.alphabetic,
-                  child: Text(
-                    "￥",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xFFFF5C83),
-                      fontWeight: FontWeight.w700,
-                      textBaseline: TextBaseline.alphabetic,
-                    ),
+                TextSpan(
+                  text:"￥",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color(0xFFFF5C83),
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-                Baseline(
-                  baseline: 23,
-                  baselineType: TextBaseline.alphabetic,
-                  child: Text(
-                    "3",
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Color(0xFFFF5C83),
-                      fontWeight: FontWeight.w700,
-                      textBaseline: TextBaseline.alphabetic,
-                    ),
+                TextSpan(
+                  text:"3",
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Color(0xFFFF5C83),
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-              ],
-            ),
+              ]
+            )),
           ),
         ],
       ),
