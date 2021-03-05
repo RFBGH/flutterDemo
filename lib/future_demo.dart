@@ -18,6 +18,7 @@ Future<int> getResult2() async{
 
 Future<String> getResult3() async{
   return Future.delayed(Duration(milliseconds: 600), (){
+    throw Exception("custome error");
     return "result3";
   });
 }
@@ -27,9 +28,22 @@ void test(){
       .wait([
         getResult1(), getResult2(), getResult3()
       ])
-      .then((results) =>{
+      .onError((error, stackTrace){
+        log("$error ${error.runtimeType}", stackTrace: stackTrace);
+
+        return Future((){
+          return null;
+        });
+      })
+      .then((results){
+
+        if(results == null){
+          log("result is null");
+          return;
+        }
+
         for (var value in results) {
-          log("$value ${value.runtimeType}")
+          log("$value ${value.runtimeType}");
         }
       });
 }
